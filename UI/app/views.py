@@ -19,12 +19,12 @@ def check_for_abuse():
     '''
     if request.method == "POST":
         abusive_text = request.form["abusive-text"]
-        clf = models.retrieve_model()
+        confidence = models.is_abuse(abusive_text)
         # Code to check if text is abusive
-        if clf == True:
-            return render_template("index.html", abusive=True)
-        else:
+        if confidence >= 0.5:
             return render_template("index.html", abusive=False)
+        else:
+            return render_template("index.html", abusive=True)
 
 
 @app.route("/analyze-twitter")
@@ -41,7 +41,6 @@ def check_twitter_handle():
     Performs analysis on the input twitter handle
     '''
     if request.method == "POST":
-        print("Hi!!")
         twitter_handle = request.form["twitter-handle"]
         clf = models.retrieve_model()
 
