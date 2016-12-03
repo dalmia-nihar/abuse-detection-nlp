@@ -11,13 +11,13 @@ def index():
     '''
     return render_template("index.html")
 
+
 @app.route("/check-for-abuse", methods=["POST"])
 def check_for_abuse():
     '''
     Checks if entered text contains abusive context
     '''
     if request.method == "POST":
-        print("Helloooo!")
         abusive_text = request.form["abusive-text"]
         clf = models.retrieve_model()
         # Code to check if text is abusive
@@ -25,3 +25,36 @@ def check_for_abuse():
             return render_template("index.html", abusive=True)
         else:
             return render_template("index.html", abusive=False)
+
+
+@app.route("/analyze-twitter")
+def display_twitter_page():
+    '''
+    Opens the page for the user to enter the twitter handle
+    '''
+    return render_template("twitterAnalysis.html")
+
+
+@app.route("/check-twitter-handle", methods=["POST"])
+def check_twitter_handle():
+    '''
+    Performs analysis on the input twitter handle
+    '''
+    if request.method == "POST":
+        print("Hi!!")
+        twitter_handle = request.form["twitter-handle"]
+        clf = models.retrieve_model()
+
+        # Code to perform tweet analysis
+        api = models.init_twitter_api()
+        total_tweets = []
+        for page in range(1, 20):
+            tweets = api.user_timeline(twitter_handle, count=200, page=page)
+            for tweet in tweets:
+                total_tweets.append(tweet.text.encode('utf-8'))
+        print(len(total_tweets))
+
+        if clf == True:
+            return render_template("twitterAnalysis.html", abusive=True)
+        else:
+            return render_template("twitterAnalysis.html", abusive=False)

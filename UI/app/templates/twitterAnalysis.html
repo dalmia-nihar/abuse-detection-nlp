@@ -18,36 +18,36 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo red-text">Cyber Abuse Detection System</a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="/analyze-twitter">Analyze Twitter Handle</a></li>
+                <li><a href="/index">Analyze Text</a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
-              <li><a href="/analyze-twitter">Analyze Twitter Handle</a></li>
+                <li><a href="/index">Analyze Text</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
 
+
+
     <!-- Parallax image -->
     <div id="index-banner" class="parallax-container">
-        <div class="parallax"><img src="{{ url_for('static', filename='background1.jpg') }}"></div>
+        <div class="parallax"><img src="{{ url_for('static', filename='background3.jpg') }}"></div>
     </div>
 
     <!--   Input Section   -->
     <div class="container">
         <div class="section">
-            <form id="check-for-abuse" action="check-for-abuse" method="POST">
+            <form id="check-twitter-handle" action="check-twitter-handle" method="POST">
                 <div class="row">
                     <div class="col s12">
                         <div class="row">
-                            <div class="input-field col s12">
-                                <textarea id="abusive-text" name="abusive-text" class="materialize-textarea" type="text"></textarea>
-                                <label for="abusive-text">Enter text to analyze for abusive content</label>
+                            <div class="input-field col s6">
+                                <input id="twitter-handle" name="twitter-handle" type="text">
+                                <label for="twitter-handle">Enter twitter handle to analyze for abusive tweets</label>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12 center">
-                                <button class="btn waves-effect waves-light red submit" type="submit" name="action">Analyze Text
+                            <div class="input-field col s6 center">
+                                <button class="btn waves-effect waves-light red submit" type="submit" name="action">Analyze Twitter Handle
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
@@ -58,12 +58,12 @@
             {% if abusive %}
             <div class="row">
                 <div class="col s12">
-                    <p class="center-align red-text">The text you have entered seems abusive and can hurt someone. Please consider revising your text.</p>
+                    <p class="center-align red-text">{} tweets were found to be abusive out of {} tweets analyzed</p>
+                    <p class="center-align red-text">List of abusive tweets:</p>
                 </div>
             </div>
             {% else %}
-            <br><br>
-            {% endif %}
+            <br><br> {% endif %}
         </div>
     </div>
 
@@ -86,6 +86,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Footer section -->
     <footer class="page-footer red lighten-2">

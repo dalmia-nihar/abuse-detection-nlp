@@ -10,6 +10,7 @@
 
 nav ul a, nav .brand-logo {
     color: #444;
+    font-weight: bold;
 }
 
 p {
@@ -60,13 +61,55 @@ footer.page-footer {
 }
 
 
-/* Custom Elements */
+/* Cyber Abuse Detection Customizations start here */
 
-#abusive-text:focus {
+/* change form input color */
+
+.input-field label {
+    color: red;
+}
+
+.input-field input[type=text]:focus+label {
+    color: red;
+}
+
+.input-field input[type=text]:focus {
     border-bottom: 1px solid red;
     box-shadow: 0 1px 0 0 red;
 }
 
-#abusive-text:focus+label {
+.input-field input[type=text].valid {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+}
+
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+}
+
+.input-field .prefix.active {
     color: red;
+}
+
+
+/* change form text area color */
+
+.input-field textarea[type=text]:focus+label {
+    color: red;
+}
+
+.input-field textarea[type=text]:focus {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+}
+
+.input-field textarea[type=text].valid {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+}
+
+.input-field textarea[type=text].invalid {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
 }
