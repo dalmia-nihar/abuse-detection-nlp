@@ -20,11 +20,7 @@ def check_for_abuse():
     if request.method == "POST":
         abusive_text = request.form["abusive-text"]
         confidence = models.is_abuse(abusive_text)
-        # Code to check if text is abusive
-        if confidence >= 0.5:
-            return render_template("index.html", abusive=False)
-        else:
-            return render_template("index.html", abusive=True)
+        return render_template("index.html", abusive=confidence)
 
 
 @app.route("/analyze-twitter")
@@ -42,18 +38,9 @@ def check_twitter_handle():
     '''
     if request.method == "POST":
         twitter_handle = request.form["twitter-handle"]
-        clf = models.retrieve_model()
+        abusive_tweets, recent_tweets = models.retrieve_abusive_tweets(twitter_handle)
 
-        # Code to perform tweet analysis
-        api = models.init_twitter_api()
-        total_tweets = []
-        for page in range(1, 20):
-            tweets = api.user_timeline(twitter_handle, count=200, page=page)
-            for tweet in tweets:
-                total_tweets.append(tweet.text.encode('utf-8'))
-        print(len(total_tweets))
-
-        if clf == True:
-            return render_template("twitterAnalysis.html", abusive=True)
+        if True:
+            return render_template("twitterAnalysis.html", abusive_tweets=abusive_tweets, recent_tweets=len(recent_tweets))
         else:
-            return render_template("twitterAnalysis.html", abusive=False)
+            return render_template("twitterAnalysis.html", abusive_tweets=abusive_tweets, recent_tweets=len(recent_tweets))

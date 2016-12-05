@@ -18,11 +18,11 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo red-text">Cyber Abuse Detection System</a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="/analyze-twitter">Analyze Twitter Handle</a></li>
+                <li><a href="/analyze-twitter">Analyze Twitter Handle</a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
-              <li><a href="/analyze-twitter">Analyze Twitter Handle</a></li>
+                <li><a href="/analyze-twitter">Analyze Twitter Handle</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -55,15 +55,22 @@
                     </div>
                 </div>
             </form>
-            {% if abusive %}
+            {% if abusive %}{% if abusive > 0.5 %}
             <div class="row">
                 <div class="col s12">
-                    <p class="center-align red-text">The text you have entered seems abusive and can hurt someone. Please consider revising your text.</p>
+                    <p class="center-align red-text">The text you have entered is abusive with a probability of {{ "{:0.2f}".format(abusive*100) }}%. Please consider revising your text.</p>
                 </div>
             </div>
             {% else %}
-            <br><br>
+            <div class="row">
+                <div class="col s12">
+                    <p class="center-align green-text">The text you have entered is not abusive.</p>
+                </div>
+            </div>
             {% endif %}
+            {% else %}
+            <br><br>
+            {% endif%}
         </div>
     </div>
 

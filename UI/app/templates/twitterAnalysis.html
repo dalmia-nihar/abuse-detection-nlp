@@ -55,11 +55,14 @@
                     </div>
                 </div>
             </form>
-            {% if abusive %}
+            {% if recent_tweets %}
             <div class="row">
                 <div class="col s12">
-                    <p class="center-align red-text">{} tweets were found to be abusive out of {} tweets analyzed</p>
+                    <p class="center-align red-text">{{ abusive_tweets|length }} tweet(s) were found to be abusive out of {{ recent_tweets }} most recent tweets analyzed</p>
                     <p class="center-align red-text">List of abusive tweets:</p>
+                    {% for abusive_tweet in abusive_tweets %}
+                    <p class="center-align red-text">{{ abusive_tweet }}</p>
+                    {% endfor %}
                 </div>
             </div>
             {% else %}
