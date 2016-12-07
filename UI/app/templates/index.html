@@ -16,13 +16,13 @@
     <!-- Navbar -->
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo red-text">Cyber Abuse Detection System</a>
+            <a id="logo-container" href="#" class="brand-logo red-text text-darken-2">Cyber Abuse Detection System</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/analyze-twitter">Analyze Twitter Handle</a></li>
+                <li><a href="/analyze-twitter" class="red-text text-lighten-2">Analyze Twitter Handle</a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
-                <li><a href="/analyze-twitter">Analyze Twitter Handle</a></li>
+                <li><a href="/analyze-twitter" class="red-text text-lighten-2">Analyze Twitter Handle</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -40,14 +40,12 @@
                 <div class="row">
                     <div class="col s12">
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field col s8">
                                 <textarea id="abusive-text" name="abusive-text" class="materialize-textarea" type="text"></textarea>
                                 <label for="abusive-text">Enter text to analyze for abusive content</label>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12 center">
-                                <button class="btn waves-effect waves-light red submit" type="submit" name="action">Analyze Text
+                            <div class="input-field col s4 center">
+                                <button class="btn waves-effect waves-light red lighten-2 submit" type="submit" name="action">Analyze Text
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
@@ -69,7 +67,7 @@
             </div>
             {% endif %}
             {% else %}
-            <br><br>
+            <br><br><br>
             {% endif%}
         </div>
     </div>
@@ -84,7 +82,7 @@
         <div class="section">
             <div class="row">
                 <div class="col s12 center">
-                    <h3><i class="large material-icons red-text">question_answer</i></h3>
+                    <h3><i class="large material-icons red-text text-lighten-2">question_answer</i></h3>
                     <h4>How Does This Work?</h4>
                     <p class="left-align light">One of the major issues that has adversely affected social interactions online is the malice of cyber abuse. This abuse has taken many forms ranging from insults, threats of physical violence to propaganda-based smear campaigns and
                         identity-based bullying. We have built a machine learning model using Natural Language Processing capable to detecting personal insults directed at a person through machine learning of abusives. We then use it to predict whether
@@ -100,7 +98,7 @@
             <div class="row">
                 <div class="col s12">
                     <h5 class="white-text">About Us</h5>
-                    <p class="grey-text text-lighten-4">We are a team of college students working on freeing the web of abusive content. A first step in this direction is to warn users before they post abusive content so that they can take corrective action. Another possible use of this
+                    <p class="grey-text text-lighten-4">We are a team of college students working on freeing the web of abusive content. A first step in this direction is to warn users before they post abusive content so that they can take corrective action. Another use of this
                         system is to flag users who frequently post offensive content online.</p>
                 </div>
             </div>

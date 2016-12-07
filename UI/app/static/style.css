@@ -66,50 +66,50 @@ footer.page-footer {
 /* change form input color */
 
 .input-field label {
-    color: red;
+    color: #E57373;
 }
 
 .input-field input[type=text]:focus+label {
-    color: red;
+    color: #E57373;
 }
 
 .input-field input[type=text]:focus {
-    border-bottom: 1px solid red;
-    box-shadow: 0 1px 0 0 red;
+    border-bottom: 1px solid #E57373;
+    box-shadow: 0 1px 0 0 #E57373;
 }
 
 .input-field input[type=text].valid {
-    border-bottom: 1px solid red;
-    box-shadow: 0 1px 0 0 red;
+    border-bottom: 1px solid #E57373;
+    box-shadow: 0 1px 0 0 #E57373;
 }
 
 .input-field input[type=text].invalid {
-    border-bottom: 1px solid red;
-    box-shadow: 0 1px 0 0 red;
+    border-bottom: 1px solid #E57373;
+    box-shadow: 0 1px 0 0 #E57373;
 }
 
 .input-field .prefix.active {
-    color: red;
+    color: #E57373;
 }
 
 
 /* change form text area color */
 
 .input-field textarea[type=text]:focus+label {
-    color: red;
+    color: #E57373;
 }
 
 .input-field textarea[type=text]:focus {
-    border-bottom: 1px solid red;
-    box-shadow: 0 1px 0 0 red;
+    border-bottom: 1px solid #E57373;
+    box-shadow: 0 1px 0 0 #E57373;
 }
 
 .input-field textarea[type=text].valid {
-    border-bottom: 1px solid red;
-    box-shadow: 0 1px 0 0 red;
+    border-bottom: 1px solid #E57373;
+    box-shadow: 0 1px 0 0 #E57373;
 }
 
 .input-field textarea[type=text].invalid {
-    border-bottom: 1px solid red;
-    box-shadow: 0 1px 0 0 red;
+    border-bottom: 1px solid #E57373;
+    box-shadow: 0 1px 0 0 #E57373;
 }
