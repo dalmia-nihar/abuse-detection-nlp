@@ -154,9 +154,12 @@ def retrieve_abusive_tweets(twitter_handle):
     model = pickle.load(open('model.pkl', 'rb'))
     confidence = model.predict_proba(recent_tweets)
 
-    abusive_tweets = []
+    # Get abusive tweets
+    abusive_tweets = {}
     for count in range(0,len(recent_tweets)):
         if confidence[count][1] > 0.50:
-            abusive_tweets.append(recent_tweets[count])
+            abusive_tweets[recent_tweets[count]] = confidence[count][1]
+    # Get the 10 most abusive tweets
+    sorted_abusive_tweets = sorted(abusive_tweets, key=abusive_tweets.get, reverse=True)
 
-    return abusive_tweets, recent_tweets
+    return sorted_abusive_tweets, recent_tweets

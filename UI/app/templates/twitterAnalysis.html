@@ -59,10 +59,10 @@
             <div class="row">
                 <div class="col s12">
                     <p class="center-align red-text bold">{{ abusive_tweets|length }} tweet(s) were found to be abusive out of {{ recent_tweets }} most recent tweets analyzed</p>
-                    <p>List of abusive tweets:</p>
+                    <p>Top 10 most abusive tweets:</p>
                     <ul class="collection">
-                    {% for abusive_tweet in abusive_tweets %}
-                    <li class="collection-item">{{ abusive_tweet }}</li>
+                    {% for count in range(0,10) %}
+                    <li class="collection-item">{{ abusive_tweets[count] }}</li>
                     {% endfor %}
                 </div>
             </div>
