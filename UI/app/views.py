@@ -21,8 +21,8 @@ def check_for_abuse():
         abusive_text = request.form["abusive-text"]
         try:
             confidence = models.is_abuse(abusive_text)
-        except:
-            return render_template("index.html", error=True)
+        # except:
+        #     return render_template("index.html", error=True)
         return render_template("index.html", abusive=confidence)
 
 
@@ -43,6 +43,6 @@ def check_twitter_handle():
         twitter_handle = request.form["twitter-handle"]
         try:
             abusive_tweets, recent_tweets = models.retrieve_abusive_tweets(twitter_handle)
-        except:
-            return render_template("twitterAnalysis.html", error=True)
+        # except:
+        #     return render_template("twitterAnalysis.html", error=True)
         return render_template("twitterAnalysis.html", abusive_tweets=abusive_tweets, recent_tweets=len(recent_tweets))
