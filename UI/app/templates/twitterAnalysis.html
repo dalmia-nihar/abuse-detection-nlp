@@ -61,11 +61,18 @@
                     <p class="center-align red-text bold">{{ abusive_tweets|length }} tweet(s) were found to be abusive out of {{ recent_tweets }} most recent tweets analyzed</p>
                     <p>Top 10 most abusive tweets:</p>
                     <ul class="collection">
-                    {% for count in range(0,10) %}
+                    {% for count in range(0,10) if abusive_tweets[count] != null %}
                     <li class="collection-item">{{ abusive_tweets[count] }}</li>
                     {% endfor %}
                 </div>
             </div>
+            {% elif error %}
+            <div class="row">
+                <div class="col s12">
+                    <p class="center-align red-text">An error occurred. Please try again.</p>
+                </div>
+            </div>
+            <br><br>
             {% else %}
             <br><br><br><br><br><br> {% endif %}
         </div>
